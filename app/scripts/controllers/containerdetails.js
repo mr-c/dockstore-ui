@@ -216,10 +216,7 @@ angular.module('dockstore.ui')
           $scope.createParamFile = $scope.createParamFile.replace("entry2json", "entry2json --descriptor " + $scope.desc);
         }
 
-        var escapedPath = encodeURIComponent(tool_path);
-        var escapedVersion = encodeURIComponent($scope.toolTagName);
-
-        $scope.launchWithCWLTool = "$ cwltool --non-strict https://www.dockstore.org:8443/api/ga4gh/v1/tools/" + escapedPath + "/versions/" + escapedVersion + "/plain-CWL/descriptor Dockstore.json";
+        $scope.launchWithCWLTool = "$ cwltool " + tool_path + ":" + $scope.toolTagName + " Dockstore.json";
         return $scope.validContent; //only show LaunchWith when content is valid
       };
 
